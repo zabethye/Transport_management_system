@@ -40,4 +40,5 @@ def when_clicked():
 
 forward_to_registration_window = Button(login_page, text="Register New User!", command=when_clicked, font=5).grid(row=10, column=2)
 
+
 login_page.mainloop()
