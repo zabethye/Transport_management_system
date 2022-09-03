@@ -31,8 +31,8 @@ def validation():
     if len(str_username) > 3:
         if len(str_password) > 4:
             register_page.destroy()
-            import home_window
-            home_window
+            import main_window
+            main_window
             return
         messagebox.showerror("Error!", "Your password must be at least 5 characters!")
         return
