@@ -30,23 +30,25 @@ email_entry = Entry(register_page, text=email, font=5).grid(row=4, column=1)
 
 #Creating validation method and register button
 
-def validation():
+def registration_validation():
     str_username = username.get()
     str_password = password.get()
     str_email = email.get()
     if len(str_username) > 3:
         if len(str_password) > 4:
-            if len(str_email) > 6:
+            import re
+            regex = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
+            if re.fullmatch(regex, str_email):
                 register_page.destroy()
                 import main_window
                 main_window
                 return
-            messagebox.showerror("Error!", "Enter a valid E-mail!")
+            messagebox.showerror("Error!", "Enter a valid E-mail address!")
             return
         messagebox.showerror("Error!", "Your password must be at least 5 characters!")
         return
     messagebox.showerror("Error!", "Your username must be at least 4 characters!")
 
-register_btn = Button(register_page, text="Register!", command=validation, font=5).grid(row=7, column=1)
+register_btn = Button(register_page, text="Register!", command=registration_validation, font=5).grid(row=7, column=1)
 
 register_page.mainloop()
