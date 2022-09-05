@@ -23,21 +23,30 @@ password_label = Label(register_page, text="Enter your password: ", font=5).grid
 password = StringVar()
 password_entry = Entry(register_page, textvariable=password, show="*", font=5).grid(row=3, column=1)
 
+#Creating email box
+email_label = Label(register_page, text="Enter your E-mail:      ", font=5).grid(row=4, column=0)
+email = StringVar()
+email_entry = Entry(register_page, text=email, font=5).grid(row=4, column=1)
+
 #Creating validation method and register button
 
 def validation():
     str_username = username.get()
     str_password = password.get()
+    str_email = email.get()
     if len(str_username) > 3:
         if len(str_password) > 4:
-            register_page.destroy()
-            import main_window
-            main_window
+            if len(str_email) > 6:
+                register_page.destroy()
+                import main_window
+                main_window
+                return
+            messagebox.showerror("Error!", "Enter a valid E-mail!")
             return
         messagebox.showerror("Error!", "Your password must be at least 5 characters!")
         return
     messagebox.showerror("Error!", "Your username must be at least 4 characters!")
 
-register_btn = Button(register_page, text="Register!", command=validation, font=5).grid(row=4, column=1)
+register_btn = Button(register_page, text="Register!", command=validation, font=5).grid(row=7, column=1)
 
 register_page.mainloop()
