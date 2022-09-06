@@ -59,6 +59,7 @@ def registration_validation(event=None):
         if len(str_password) > 4:
             if not email.get():
                 messagebox.showerror("Error!", "Please, enter your E-mail address!")
+                return
             elif not first_name.get():
                 messagebox.showerror("Error!", "Please, enter your first name!")
                 return
