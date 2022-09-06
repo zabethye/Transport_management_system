@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import messagebox, ttk
 
 #Creating register window
-
 register_page = Tk()
 register_page.geometry("700x400")
 register_page.title("Register User")
@@ -64,7 +63,31 @@ phone_number = StringVar()
 phone_number_entry = ttk.Entry(register_page, text=phone_number, font=5)
 phone_number_entry.grid(row=9, column=1)
 
-#Creating validation method and register button
+#Creating validation and registration method and register button
+def register_user():
+    import mysql.connector
+    db = mysql.connector.connect(host='localhost',
+                                 user='root',
+                                 password='IA8888@@',
+                                 database='transport_management_system')
+    mycursor = db.cursor()
+    username_info = username.get()
+    password_info = password.get()
+    email_info = email.get()
+    first_name_info = first_name.get()
+    last_name_info = last_name.get()
+    position_info = position.get()
+    phone_number_info = phone_number.get()
+
+    sql_command = f"insert into users values ('{username_info}', " \
+                  f"'{password_info}', '{email_info}', " \
+                  f"'{first_name_info}', '{last_name_info}', " \
+                  f"'{position_info}', '{phone_number_info}')";
+
+    mycursor.execute(sql_command)
+    db.commit()
+    messagebox.showinfo("Success!", "Successful registration! \n"
+                                    "Welcome to Transport Management System!")
 
 def registration_validation(event=None):
     str_username = username.get()
@@ -91,15 +114,17 @@ def registration_validation(event=None):
             import re
             regex = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
             if re.fullmatch(regex, str_email):
+                register_user()
                 register_page.destroy()
-                import main_window
-                main_window
+                from login_form import login_page
+                login_page
                 return
             messagebox.showerror("Error!", "Enter a valid E-mail address!")
             return
         messagebox.showerror("Error!", "Your password must be at least 5 characters!")
         return
     messagebox.showerror("Error!", "Your username must be at least 4 characters!")
+
 
 register_btn = Button(register_page, text="Register!", command=registration_validation, font=5)
 register_btn.grid(row=10, column=1)
