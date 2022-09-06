@@ -36,7 +36,8 @@ password_entry.grid(row=5, column=1)
 #Creating Log In button and forwarding to transport management system
 def log_in():
     #MySQL connection
-    db = mysql.connector.connect(host='localhost', user='root', password='IA8888@@',
+    from test import connect_password
+    db = mysql.connector.connect(host='localhost', user='root', password=connect_password,
                                  database="transport_management_system")
     mycursor = db.cursor()
     mycursor.execute("select * FROM users where username = '"+ username.get() +"' and password = '"+ password.get() +"';")

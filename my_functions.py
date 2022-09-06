@@ -15,7 +15,8 @@ def database_func(choice):
         print(err)
 
 def database_connect():
+    from test import connect_password
     import mysql.connector
-    db = mysql.connector.connect(host='localhost', user='root', password='IA8888@@', database="transport_management_system")
+    db = mysql.connector.connect(host='localhost', user='root', password=connect_password, database="transport_management_system")
     mycursor = db.cursor()
 

@@ -66,9 +66,10 @@ phone_number_entry.grid(row=9, column=1)
 #Creating validation and registration method and register button
 def register_user():
     import mysql.connector
+    from test import connect_password
     db = mysql.connector.connect(host='localhost',
                                  user='root',
-                                 password='IA8888@@',
+                                 password=connect_password,
                                  database='transport_management_system')
     mycursor = db.cursor()
     username_info = username.get()
