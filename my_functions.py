@@ -14,3 +14,8 @@ def database_func(choice):
     except mysql.connector.Error as err:
         print(err)
 
+def database_connect():
+    import mysql.connector
+    db = mysql.connector.connect(host='localhost', user='root', password='IA8888@@', database="transport_management_system")
+    mycursor = db.cursor()
+
