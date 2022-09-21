@@ -34,7 +34,7 @@ password_entry = ttk.Entry(login_page, textvariable=password, show="*", font=5)
 password_entry.grid(row=5, column=1)
 
 #Creating Log In button and forwarding to transport management system
-def log_in(self):
+def log_in(event=None):
     #MySQL connection
     from test import connect_password
     db = mysql.connector.connect(host='localhost', user='root', password=connect_password,
