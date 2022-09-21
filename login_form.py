@@ -34,7 +34,7 @@ password_entry = ttk.Entry(login_page, textvariable=password, show="*", font=5)
 password_entry.grid(row=5, column=1)
 
 #Creating Log In button and forwarding to transport management system
-def log_in():
+def log_in(self):
     #MySQL connection
     from test import connect_password
     db = mysql.connector.connect(host='localhost', user='root', password=connect_password,
@@ -42,7 +42,7 @@ def log_in():
     mycursor = db.cursor()
     mycursor.execute("select * FROM users where username = '"+ username.get() +"' and password = '"+ password.get() +"';")
     my_result = mycursor.fetchone()
-    if my_result == None:
+    if my_result is None:
         messagebox.showerror("Error!", "Invalid username or password!")
     else:
         messagebox.showinfo("Success!", "Successfully Login!")
@@ -72,5 +72,6 @@ def register_click():
 
 forward_to_registration_window = Button(login_page, text="Register New User!", command=register_click, font=5)
 forward_to_registration_window.grid(row=10, column=2)
+login_page.bind('<Return>', log_in)
 
 login_page.mainloop()

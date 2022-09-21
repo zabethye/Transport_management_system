@@ -21,7 +21,7 @@ second_label_on_top = Label(top_frame1, text="For the Future...", bg=top_label_c
 second_label_on_top.place(x=400, y=55)
 
 # make frame for the buttons
-buttons_frame = Frame(home_window, width=1692, height=700, bg=background_colour)
-buttons_frame.place(x=0, y=100)
+main_frame = Frame(home_window, width=1692, height=700, bg=background_colour)
+main_frame.place(x=0, y=100)
 
 home_window.mainloop()
