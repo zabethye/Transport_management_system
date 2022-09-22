@@ -34,13 +34,15 @@ trucks_button = Button(buttons_frame, text="Автомобили", font="Helveti
 trucks_button.place(x=0, y=0)
 
 destinations_button = Button(buttons_frame, text="Курсове", font="Helvetica 15 ", bg=buttons_backround, relief='raised')
-destinations_button.place(x=128, y=0)
+destinations_button.place(x=130, y=0)
 
 drivers_button = Button(buttons_frame, text="Водачи", font="Helvetica 15", bg=buttons_backround, relief='raised')
-drivers_button.place(x=222, y=0)
+drivers_button.place(x=226, y=0)
 
 finance_button = Button(buttons_frame, text="Финанси", font="Helvetica 15", bg=buttons_backround, relief='raised')
-finance_button.place(x=307, y=0)
+finance_button.place(x=313, y=0)
 
+settings_button = Button(buttons_frame, text="Настройки", font="Helvetica 15", bg=buttons_backround, relief='raised')
+settings_button.place(x=1415, y=0)
 
 home_window.mainloop()
