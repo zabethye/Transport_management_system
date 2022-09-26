@@ -18,7 +18,7 @@ label_on_top = Label(top_frame, text="Transport Management System", bg=top_label
                      font="Helvetica 25 bold")
 label_on_top.place(x=15, y=15)
 
-second_label_on_top = Label(top_frame, text="For the Future...", bg=top_label_colour, fg="white",
+second_label_on_top = Label(top_frame, text="Beta Version 0.1", bg=top_label_colour, fg="white",
                             font="Helvetica 20 italic")
 second_label_on_top.place(x=400, y=55)
 
@@ -26,7 +26,7 @@ second_label_on_top.place(x=400, y=55)
 main_frame = Frame(home_window, width=1692, height=700, bg=background_colour)
 main_frame.place(x=0, y=100)
 
-#made button frame
+#made button frame and buttons
 buttons_frame = Frame(main_frame, width=1536, height=50, borderwidth=4, bg=background_colour, relief="raised")
 buttons_frame.place(x=0, y=0)
 
@@ -44,5 +44,12 @@ finance_button.place(x=313, y=0)
 
 settings_button = Button(buttons_frame, text="Настройки", font="Helvetica 15", bg=buttons_backround, relief='raised')
 settings_button.place(x=1415, y=0)
+
+#Made secondary frames
+detail_frame_1 = Frame(main_frame, width=767, height=642, borderwidth=4, bg='silver', relief='ridge')
+detail_frame_1.place(x=0, y=51)
+
+detail_frame_2 = Frame(main_frame, width=767, height=642, borderwidth=4, bg='silver', relief='ridge')
+detail_frame_2.place(x=768, y=51)
 
 home_window.mainloop()
